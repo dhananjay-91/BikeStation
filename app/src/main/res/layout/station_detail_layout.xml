@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="bikeStation"
+            type="com.dhananjay.digikraft.data.model.BikeStation" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/default_margin"
+        android:paddingTop="@dimen/default_margin"
+        android:paddingEnd="@dimen/default_margin">
+
+
+        <TextView
+            android:id="@+id/txtStationId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{String.valueOf(bikeStation.id)}" />
+
+        <TextView
+            android:id="@+id/txtStationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_between_text"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/txtStationId"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{bikeStation.properties.label}" />
+
+        <TextView
+            android:id="@+id/txtDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="@string/_600m"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/txtStationId"
+            app:layout_constraintTop_toBottomOf="@id/txtStationId" />
+
+
+        <TextView
+            android:id="@+id/txtViewDot"
+            android:layout_width="2dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:text="@string/dot"
+            android:textColor="@color/grey"
+            android:textSize="90sp"
+            app:layout_constraintBottom_toBottomOf="@id/txtDistance"
+            app:layout_constraintStart_toEndOf="@id/txtDistance"
+            app:layout_constraintTop_toTopOf="@id/txtDistance" />
+
+
+        <TextView
+            android:id="@+id/txtBikeStation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:text="Bike Station"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/txtDistance"
+            app:layout_constraintStart_toEndOf="@id/txtViewDot"
+            app:layout_constraintTop_toTopOf="@id/txtDistance" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDistance">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgBike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_bike" />
+
+                <TextView
+                    android:id="@+id/txtAvailableBikesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:text="@string/available_bikes" />
+
+                <TextView
+                    android:id="@+id/txtAvailableBike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold"
+                    android:text="@{String.valueOf(bikeStation.properties.bikes)}" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgPlaces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_lock" />
+
+                <TextView
+                    android:id="@+id/txtAvailablePlacesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:text="@string/available_places" />
+
+                <TextView
+                    android:id="@+id/txtAvailablePlaces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold"
+                    android:text="@{String.valueOf(bikeStation.properties.free_racks)}" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

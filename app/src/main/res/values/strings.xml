@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Digikraft</string>
+    <string name="please_wait">Please wait</string>
+    <string name="dot">•</string>
+    <string name="available_bikes">Available bikes</string>
+    <string name="available_places">Available places</string>
+    <string name="_600m">600m</string>
+    <string name="marker_image">Marker Image</string>
+</resources>
